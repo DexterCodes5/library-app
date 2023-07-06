@@ -1,15 +1,17 @@
 export class BookModel {
-  id: number;
+  id?: number;
   title: string;
-  author?: string;  
-  description?: string;  
-  copies?: number;  
+  author: string;  
+  description: string;  
+  copies: number;
   copiesAvailable?: number;
-  category?: string;
-  img?: string
+  category: string;
+  img: string;
 
-  constructor(id: number, title: string, author: string, description: string,
-    copies: number, copiesAvailable: number, category: string, img: string) {
+  constructor(title: string, author: string, description: string,
+    copies: number, category: string, img: string)
+  constructor(title: string, author: string, description: string,
+    copies: number, category: string, img: string, id?: number, copiesAvailable?: number) {
     this.id = id;
     this.title = title;
     this.author = author;

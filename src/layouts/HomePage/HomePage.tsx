@@ -5,11 +5,11 @@ import { LibraryServices } from "./components/LibraryServices";
 
 export const HomePage = () => {
   return (
-    <div>
+    <>
       <ExploreTopBooks />
       <Carousel />
       <Heros />
       <LibraryServices />
-    </div>
+    </>
   );
 };

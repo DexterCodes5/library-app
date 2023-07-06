@@ -1,6 +1,6 @@
 
 export const Pagination: React.FC<{
-  currentPage: number, totalPages: number, paginate: any
+  currentPage: number, totalPages: number, paginate: Function
 }> = (props) => {
   const pageNumbers = [];
 

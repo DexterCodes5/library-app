@@ -17,7 +17,7 @@ export const LatestReviews: React.FC<{
           <>
             {props.reviews.slice(0, 3).map(review => <Review review={review} key={review.id} />)}
             <div className="m-3">
-              <Link className="btn main-color btn-md text-white" to="">Reach all reviews.</Link>
+              <Link className="btn main-color btn-md text-white" to={`/reviews/${props.bookId}`}>Reach all reviews.</Link>
             </div>
           </>
           :

@@ -11,7 +11,7 @@ export const SearchBooksPage = () => {
   const [httpError, setHttpError] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [booksPerPage] = useState(5);
+  const booksPerPage = 5;
   const [totalAmountOfBooks, setTotalAmountOfBooks] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -22,7 +22,7 @@ export const SearchBooksPage = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const baseUrl: string = "http://localhost:8080/api/books";
+      const baseUrl: string = `${process.env.REACT_APP_API}/books`;
       let url: string;
 
       if (searchUrl === "") {
@@ -44,19 +44,6 @@ export const SearchBooksPage = () => {
       setTotalPages(responseJson.page.totalPages);
 
       const responseData = await responseJson._embedded.books;
-      const loadedBooks: BookModel[] = [];
-
-      responseData.forEach((book: BookModel) => {
-        loadedBooks.push({
-          id: book.id,
-          title: book.title,
-          author: book.author,
-          description: book.description,
-          copies: book.copies,
-          copiesAvailable: book.copiesAvailable,
-          img: book.img
-        });
-      });
       setBooks(responseData);
       setIsLoading(false);
     }
